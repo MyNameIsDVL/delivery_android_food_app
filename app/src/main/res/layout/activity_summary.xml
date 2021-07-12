@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021 | Mateusz Hus.
+  ~ The content of this application, including (but not limited to) all written material, images, photos, and code, are protected under international copyright and trademark laws. You may not copy, reproduce, modify, republish, transmit or distribute any material from this application.
+  ~
+  ~ Author: Mateusz Hus
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SummaryActivity"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBack"
+        android:onClick="cardBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="#FB9300">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="3dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/layout_login_bg"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/loginRelForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormPriceDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/to_pay_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="Do zapłaty:"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/to_pay_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_toRightOf="@+id/to_pay_text"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/to_pay_pln"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="zł"
+                        android:layout_toRightOf="@+id/to_pay_price"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/to_delivery_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Oczekiwanie na zamówienie:"
+                        android:layout_below="@+id/to_pay_pln"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Czas oczekiwania na zamówienie zależny jest od godziny a także od ilości zamówień. Zwykle jest to 30 min."
+                        android:layout_below="@+id/to_delivery_time"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="5dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RadioGroup
+                        android:id="@+id/allmethods"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <RadioButton
+                            android:id="@+id/radio_payOnline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Płacę online"
+                            android:padding="10dp"
+                            android:buttonTint="#FB9300"
+                            android:onClick="checkBtn"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_payCardWhenDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Płacę kartą przy odbiorze (dostawa do domu)"
+                            android:padding="10dp"
+                            android:buttonTint="#FB9300"
+                            android:onClick="checkBtn"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_payOnPlace"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Płacę przy odbiorze osobistym"
+                            android:padding="10dp"
+                            android:buttonTint="#FB9300"
+                            android:onClick="checkBtn"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormPayMethods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Metody płatności"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radio_payU"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="PayU"
+                                android:padding="10dp"
+                                android:buttonTint="#FB9300"/>
+
+                            <RadioButton
+                                android:id="@+id/radio_payPal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="PayPal"
+                                android:padding="10dp"
+                                android:buttonTint="#FB9300"/>
+
+                            <RadioButton
+                                android:id="@+id/radio_payPrzelewy24"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Przelewy24"
+                                android:padding="10dp"
+                                android:buttonTint="#FB9300"/>
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dane dostawy"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/phoneNumber_delivery_pay_on"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="Telefon"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
+                        android:inputType="phone"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="15dp"
+                        android:textSize="15dp"
+                        android:ems="10"
+                        android:textColorHint="#FB9300"
+                        app:hintTextColor="#FB9300"
+                        android:layout_marginTop="10dp"
+                        android:textCursorDrawable="@color/design_default_color_error"/>
+
+                    <EditText
+                        android:id="@+id/deliveryAddress_delivery_pay_on"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="Adres dostawy"
+                        android:drawablePadding="10dp"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                        android:inputType="text"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="15dp"
+                        android:textSize="15dp"
+                        android:ems="10"
+                        android:textColorHint="#FB9300"
+                        app:hintTextColor="#FB9300"
+                        android:layout_marginTop="10dp"
+                        android:textCursorDrawable="@color/design_default_color_error"/>
+
+                    <Button
+                        android:id="@+id/payOnlineWithMethods"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cart_button_bg"
+                        android:text="Finalizowanie"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormDeliveryData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dane dostawy"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="Telefon"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_baseline_phone_iphone_24"
+                        android:inputType="phone"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="15dp"
+                        android:textSize="15dp"
+                        android:ems="10"
+                        android:textColorHint="#FB9300"
+                        app:hintTextColor="#FB9300"
+                        android:layout_marginTop="10dp"
+                        android:textCursorDrawable="@color/design_default_color_error"/>
+
+                    <EditText
+                        android:id="@+id/deliveryAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="Adres dostawy"
+                        android:drawablePadding="10dp"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                        android:inputType="text"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="15dp"
+                        android:textSize="15dp"
+                        android:ems="10"
+                        android:textColorHint="#FB9300"
+                        app:hintTextColor="#FB9300"
+                        android:layout_marginTop="10dp"
+                        android:textCursorDrawable="@color/design_default_color_error"/>
+
+                    <Button
+                        android:id="@+id/payInDeliveryHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cart_button_bg"
+                        android:text="Finalizowanie"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardFormGetPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Miejsce odbioru"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/getPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:hint="Adres restauracji"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                        android:inputType="text"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="15dp"
+                        android:textSize="15dp"
+                        android:ems="10"
+                        android:textColorHint="#FB9300"
+                        app:hintTextColor="#FB9300"
+                        android:layout_marginTop="10dp"
+                        android:textCursorDrawable="@color/design_default_color_error"/>
+
+                    <Button
+                        android:id="@+id/payInShop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cart_button_bg"
+                        android:text="Finalizowanie"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

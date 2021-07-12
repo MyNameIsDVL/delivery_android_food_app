@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021 | Mateusz Hus.
+  ~ The content of this application, including (but not limited to) all written material, images, photos, and code, are protected under international copyright and trademark laws. You may not copy, reproduce, modify, republish, transmit or distribute any material from this application.
+  ~
+  ~ Author: Mateusz Hus
+  ~
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:onClick="onOptionsItemSelected"
+            android:title="Profil"/>
+
+        <item android:id="@+id/nav_favourite"
+            android:icon="@drawable/ic_baseline_favorite_24"
+            android:onClick="onOptionsItemSelected"
+            android:title="Ulubione"/>
+
+        <item android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_follow_the_signs_24"
+            android:onClick="onOptionsItemSelected"
+            android:title="Wyloguj"/>
+
+    </group>
+
+    <item android:title="Kontakt">
+
+        <menu>
+
+            <item android:id="@+id/nav_fb"
+                android:icon="@drawable/ic_baseline_share_24"
+                android:title="Nasz facebook"/>
+
+            <item android:id="@+id/nav_phone"
+                android:icon="@drawable/ic_baseline_phone_iphone_24"
+                android:title="+48 243 342 432"/>
+
+        </menu>
+
+    </item>
+
+</menu>
